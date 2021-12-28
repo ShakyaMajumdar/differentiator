@@ -1,0 +1,14 @@
+expression → term  
+
+term → (factor ("+" | "-"))* factor
+
+factor → (pow ("*" | "/"))* pow
+
+pow → unary ("^" unary)*
+
+unary → "-" unary
+      | primary
+
+primary → CONSTANT 
+        | VARIABLE
+        | [FUNCTION] "(" expression ")"
